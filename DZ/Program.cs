@@ -3,10 +3,25 @@ namespace ALMAZ
 {
     struct UserData
     {
+        /// <summary>
+        /// Имя
+        /// </summary>
         public string Name;
+        /// <summary>
+        /// Фамилия
+        /// </summary>
         public string Surname;
+        /// <summary>
+        /// Город
+        /// </summary>
         public string City;
+        /// <summary>
+        /// Дата рождения
+        /// </summary>
         public DateTime DateTime;
+        /// <summary>
+        /// Пин-код
+        /// </summary>
         public long PinCode;
         public UserData(string name, string surname, string city, DateTime dateTime, long pinCode)
         {
@@ -17,6 +32,9 @@ namespace ALMAZ
             DateTime = dateTime;
             PinCode = pinCode;
         }
+        /// <summary>
+        /// Вывод информации
+        /// </summary>
         public void PrintUserData()
         {
             int age = DateTime.Today.Year - DateTime.Year;
@@ -34,42 +52,45 @@ namespace ALMAZ
     /// 
     struct StudentInformation
     {
-        /// 
-        /// Имя студента
-        ///
+        /// <summary>
+        ///  Имя студента
+        /// </summary>            
         public string Name;
-        ///
+        /// <summary>
         /// Фамилия студента
         /// 
         public string Surname;
-        ///
+        /// <summary>
         /// ID Студента
-        /// 
+        /// </summary>  
         public long ID;
-        /// 
+        /// <summary>
         /// Дата рождения студента
-        /// 
+        /// </summary>  
         public DateTime DateTime;
-        ///
+        /// <summary>
         /// Кол-во выпитого напитка в мл
-        /// 
+        /// </summary>  
         public int VolumeOfConsumedDrink;
-        ///
+        /// <summary>
         /// Информация о выпитом напитке
-        /// 
+        /// </summary>  
         public AlcoholInformation AlcoholInfo;
-        /// 
+        ///  <summary>
         /// Категория алкоголизма
-        /// 
+        /// </summary>  
         public AlcoholismCategory Category;
 
-        public enum AlcoholismCategory
-        {
-            Алкоголик,
-            ЛюбительВыпить,
-            ПьетПоПраздникам,
-            НеПьёт,
-        }
+    /// <summary>
+    /// Категория алкоголизма
+    /// </summary>
+    public enum AlcoholismCategory
+    {
+        Алкоголик,
+        ЛюбительВыпить,
+        ПьетПоПраздникам,
+        НеПьёт,
+    }
 
         public StudentInformation(string name, string surname, long id, DateTime dateTime, int volumeOfConsumedDrink, AlcoholismCategory category, AlcoholInformation alcoholInfo)
         {
@@ -82,6 +103,9 @@ namespace ALMAZ
             Category = category;
             AlcoholInfo = alcoholInfo;
         }
+        /// <summary>
+        /// Вывод информации о студенте
+        /// </summary>
         public void PrintStudentInfo()
         {
             int age = DateTime.Today.Year - DateTime.Year;
@@ -91,9 +115,9 @@ namespace ALMAZ
             Console.WriteLine($"Имя:{Name} {Surname}\n" +
                 $"ID: {ID}\n" +
                 $"Возраст: {age}\n" +
-                $"Кол-во выпитого напитка: {VolumeOfConsumedDrink}\n" +
+                $"Кол-во выпитого напитка(в мл): {VolumeOfConsumedDrink}\n" +
                 $"Категория алкоголизма: {Category}\n" +
-                $"Вид Алкоголя: {AlcoholInfo}");
+                $"Вид Алкоголя: {AlcoholInfo.Name}");
         }
     }
 
@@ -126,17 +150,17 @@ namespace ALMAZ
 
             //Задание 1
             Console.WriteLine("Задание 1");
-            Console.WriteLine($"byte – {byte.MaxValue} – {byte.MinValue}");
-            Console.WriteLine($"sbyte – {sbyte.MaxValue} – {sbyte.MinValue}");
-            Console.WriteLine($"short – {short.MaxValue} – {short.MinValue}");
-            Console.WriteLine($"int – {int.MaxValue} – {int.MinValue}");
-            Console.WriteLine($"long – {long.MaxValue} – {long.MinValue}");
-            Console.WriteLine($"ushort – {ushort.MaxValue} – {ushort.MinValue}");
-            Console.WriteLine($"uint – {uint.MaxValue} – {uint.MinValue}");
-            Console.WriteLine($"ulong – {ulong.MaxValue} – {ulong.MinValue}");
-            Console.WriteLine($"float – {float.MaxValue} – {float.MinValue}");
-            Console.WriteLine($"double – {double.MaxValue} – {double.MinValue}");
-            Console.WriteLine($"decimal – {decimal.MaxValue} – {decimal.MinValue}");
+            Console.WriteLine($"byte – {byte.MinValue} – {byte.MaxValue}");
+            Console.WriteLine($"sbyte – {sbyte.MinValue} – {sbyte.MaxValue}");
+            Console.WriteLine($"short – {short.MinValue} – {short.MaxValue}");
+            Console.WriteLine($"int – {int.MinValue} – {int.MaxValue}");
+            Console.WriteLine($"long – {long.MinValue} – {long.MaxValue}");
+            Console.WriteLine($"ushort – {ushort.MinValue} – {ushort.MaxValue}");
+            Console.WriteLine($"uint – {uint.MinValue} – {uint.MaxValue}");
+            Console.WriteLine($"ulong – {ulong.MinValue} – {ulong.MaxValue}");
+            Console.WriteLine($"float – {float.MinValue} – {float.MaxValue}");
+            Console.WriteLine($"double – {double.MinValue} – {double.MaxValue}");
+            Console.WriteLine($"decimal – {decimal.MinValue} – {decimal.MaxValue}");
 
 
 
@@ -263,15 +287,20 @@ namespace ALMAZ
             //Задание 6
             Console.WriteLine("\n\nЗадание 6");
 
-            AlcoholInformation beer = new AlcoholInformation("Beer", 5);
-            AlcoholInformation wine = new AlcoholInformation("Wine", 12);
-            AlcoholInformation vodka = new AlcoholInformation("Vodka", 40);
+            AlcoholInformation beer = new AlcoholInformation("Пиво", 5);
+            AlcoholInformation wine = new AlcoholInformation("Вино", 12);
+            AlcoholInformation vodka = new AlcoholInformation("Водкa", 40);
             StudentInformation[] students = new StudentInformation[5];
             students[0] = new StudentInformation("Иван", "Иванов", 1, new DateTime(2000, 1, 15), 2000, StudentInformation.AlcoholismCategory.Алкоголик, vodka);
             students[1] = new StudentInformation("Петр", "Петров", 2, new DateTime(1999, 5, 20), 1500, StudentInformation.AlcoholismCategory.ЛюбительВыпить, beer);
             students[2] = new StudentInformation("Сергей", "Сергеев", 3, new DateTime(2001, 3, 10), 1000, StudentInformation.AlcoholismCategory.ПьетПоПраздникам, wine);
             students[3] = new StudentInformation("Алексей", "Алексеев", 4, new DateTime(2002, 7, 7), 0, StudentInformation.AlcoholismCategory.НеПьёт, beer);
             students[4] = new StudentInformation("Михаил", "Михайлов", 5, new DateTime(2001, 11, 25), 2500, StudentInformation.AlcoholismCategory.Алкоголик, vodka);
+            students[0].PrintStudentInfo();
+            students[1].PrintStudentInfo();
+            students[2].PrintStudentInfo();                
+            students[3].PrintStudentInfo();
+            students[4].PrintStudentInfo();
 
 
 
